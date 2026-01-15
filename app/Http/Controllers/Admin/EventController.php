@@ -43,7 +43,7 @@ class EventController extends Controller
 
         // Handle file upload
         if ($request->hasFile('gambar')) {
-            $imageName = time().'.'.$request->gambar->extension();
+            $imageName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('images/events'), $imageName);
             $validatedData['gambar'] = $imageName;
         }
@@ -96,7 +96,7 @@ class EventController extends Controller
 
             // Handle file upload
             if ($request->hasFile('gambar')) {
-                $imageName = time().'.'.$request->gambar->extension();
+                $imageName = time() . '.' . $request->gambar->extension();
                 $request->gambar->move(public_path('images/events'), $imageName);
                 $validatedData['gambar'] = $imageName;
             }

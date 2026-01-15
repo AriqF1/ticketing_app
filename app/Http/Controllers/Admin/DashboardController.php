@@ -14,13 +14,11 @@ class DashboardController extends Controller
      * Display the dashboard.
      */
     public function index()
-{
-    $totalEvents = Event::count();
-    $totalCategories = \App\Models\Kategori::count();
-    $totalOrders = Order::count();
-    
-    // Pastikan path Blade sesuai folder admin
-    return view('admin.dashboard', compact('totalEvents', 'totalCategories', 'totalOrders'));
-}
+    {
+        $totalEvents = Event::count();
+        $totalCategories = \App\Models\Kategori::count();
+        $totalOrders = Order::count();
 
+        return view('admin.dashboard', compact('totalEvents', 'totalCategories', 'totalOrders'));
+    }
 }
