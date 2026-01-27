@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Event;
 use App\Models\Kategori;
+use App\Models\Lokasi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class EventController extends Controller
      */
     public function create()
     {
+        $lokasis = Lokasi::all();
         $categories = Kategori::all();
-        return view('admin.event.create', compact('categories'));
+        return view('admin.event.create', compact('categories', 'lokasis'));
     }
 
     /**
