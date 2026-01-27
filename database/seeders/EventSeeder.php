@@ -3,19 +3,22 @@
 namespace Database\Seeders;
 
 use App\Models\Event;
+use App\Models\Lokasi;
 use Illuminate\Database\Seeder;
 
 class EventSeeder extends Seeder
 {
     public function run(): void
     {
+        $lokasiMap = Lokasi::pluck('id', 'nama_lokasi');
+
         $events = [
             [
                 'user_id' => 1,
                 'judul' => 'Konser Musik Rock',
                 'deskripsi' => 'Nikmati malam penuh energi dengan band rock terkenal.',
                 'tanggal_waktu' => '2024-08-15 19:00:00',
-                'lokasi' => 'Stadion Utama',
+                'lokasi_id' => $lokasiMap['Stadion Utama'],
                 'kategori_id' => 1,
                 'gambar' => 'events/konser_rock.jpg',
             ],
@@ -24,7 +27,7 @@ class EventSeeder extends Seeder
                 'judul' => 'Pameran Seni Kontemporer',
                 'deskripsi' => 'Jelajahi karya seni modern dari seniman lokal dan internasional.',
                 'tanggal_waktu' => '2024-09-10 10:00:00',
-                'lokasi' => 'Galeri Seni Kota',
+                'lokasi_id' => $lokasiMap['Galeri Seni Kota'],
                 'kategori_id' => 2,
                 'gambar' => 'events/pameran_seni.jpg',
             ],
@@ -33,7 +36,7 @@ class EventSeeder extends Seeder
                 'judul' => 'Festival Makanan Internasional',
                 'deskripsi' => 'Cicipi berbagai hidangan lezat dari seluruh dunia.',
                 'tanggal_waktu' => '2024-10-05 12:00:00',
-                'lokasi' => 'Taman Kota',
+                'lokasi_id' => $lokasiMap['Taman Kota'],
                 'kategori_id' => 3,
                 'gambar' => 'events/festival_makanan.jpg',
             ],
