@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\Admin\LokasiController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -35,9 +36,11 @@ Route::middleware('auth')->group(function () {
 
         Route::resource('tickets', TiketController::class);
 
+        Route::resource('lokasi', LokasiController::class);
+
         Route::get('/histories', [HistoriesController::class, 'index'])->name('histories.index');
         Route::get('/histories/{id}', [HistoriesController::class, 'show'])->name('histories.show');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
